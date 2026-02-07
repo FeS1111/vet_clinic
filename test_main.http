@@ -1,0 +1,33 @@
+### Health
+GET http://127.0.0.1:8000/health
+
+### Create patient
+POST http://127.0.0.1:8000/patients
+Content-Type: application/json
+
+{
+  "first_name": "Барсик",
+  "last_name": "Котов",
+  "owner_name": "Иван Петров",
+  "phone": "+79990001122",
+  "email": "owner@example.com",
+  "species": "cat",
+  "breed": "british"
+}
+
+### List patients
+GET http://127.0.0.1:8000/patients
+
+### Get patient by id
+GET http://127.0.0.1:8000/patients/1
+
+### Update patient
+PATCH http://127.0.0.1:8000/patients/1
+Content-Type: application/json
+
+{
+  "breed": "scottish fold"
+}
+
+### Delete patient
+DELETE http://127.0.0.1:8000/patients/1

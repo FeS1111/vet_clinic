@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Редактирование пациента #{{ patient.id }}</h2>
+
+<form method="post" action="/ui/patients/{{ patient.id }}/edit">
+  <input name="first_name" value="{{ patient.first_name }}" required>
+  <input name="last_name" value="{{ patient.last_name }}" required>
+  <input name="owner_name" value="{{ patient.owner_name }}" required>
+  <input name="phone" value="{{ patient.phone or '' }}" placeholder="Телефон">
+  <input name="email" value="{{ patient.email or '' }}" placeholder="Email">
+  <input name="species" value="{{ patient.species or '' }}" placeholder="Вид">
+  <input name="breed" value="{{ patient.breed or '' }}" placeholder="Порода">
+  <button type="submit">Сохранить</button>
+  <a href="/ui/patients">Отмена</a>
+</form>
+
+{% if error %}
+  <p style="color:red">{{ error }}</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Пациенты</h2>
+
+<h3>Добавить пациента</h3>
+<form method="post" action="/ui/patients">
+  <input name="first_name" placeholder="Имя (кличка)" required>
+  <input name="last_name" placeholder="Фамилия/кличка" required>
+  <input name="owner_name" placeholder="Владелец" required>
+  <input name="phone" placeholder="Телефон">
+  <input name="email" placeholder="Email">
+  <input name="species" placeholder="Вид (cat/dog)">
+  <input name="breed" placeholder="Порода">
+  <button type="submit">Добавить</button>
+</form>
+
+{% if error %}
+  <p style="color:red">{{ error }}</p>
+{% endif %}
+
+<h3>Список</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>ID</th>
+    <th>Пациент</th>
+    <th>Владелец</th>
+    <th>Телефон</th>
+    <th>Вид/Порода</th>
+    <th>Действия</th>
+  </tr>
+
+  {% for p in patients %}
+  <tr>
+    <td>{{ p.id }}</td>
+    <td>{{ p.first_name }} {{ p.last_name }}</td>
+    <td>{{ p.owner_name }}</td>
+    <td>{{ p.phone or "" }}</td>
+    <td>{{ (p.species or "") }} {{ (p.breed or "") }}</td>
+    <td>
+      <a href="/ui/patients/{{ p.id }}/edit">Редактировать</a>
+      |
+      <form method="post" action="/ui/patients/{{ p.id }}/delete" style="display:inline">
+        <button type="submit" onclick="return confirm('Удалить пациента?')">Удалить</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
