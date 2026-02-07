@@ -28,13 +28,13 @@ UI открывается сразу на главной странице:
 ## Технологии
 
 - **Python 3.12**
-- **FastAPI** — создание HTTP API и маршрутов
-- **Uvicorn** — ASGI-сервер для запуска приложения
-- **SQLAlchemy 2.0** — ORM и работа с базой данных
-- **SQLite** — простая файловая БД (удобно для тестового задания)
-- **Pydantic** — валидация входных/выходных данных (DTO/схемы)
-- **Jinja2** — простой server-side UI (HTML-шаблоны)
-- **python-multipart** — поддержка HTML-форм (Form-data)
+- **FastAPI**
+- **Uvicorn**
+- **SQLAlchemy 2.0**
+- **SQLite** 
+- **Pydantic** 
+- **Jinja2** 
+- **python-multipart**
 
 ---
 
