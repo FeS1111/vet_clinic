@@ -8,7 +8,6 @@ from patients.router import router as patients_router
 app = FastAPI(title="Ветеринарная клиника")
 app.include_router(ui_router)
 
-# Упрощенно: создаём таблицы при старте (для задания ок; позже можно Alembic)
 Base.metadata.create_all(bind=engine)
 
 app.include_router(patients_router)
